@@ -1,6 +1,7 @@
 package com.example.guru2_project_25;
 
 import android.app.AlertDialog
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -11,9 +12,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 
 class SettingFragment : Fragment() {
+
+    private var userPw = ""         // 사용자 비밀번호 저장하는 변수
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,8 +30,44 @@ class SettingFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val profileEditButton = view.findViewById<Button>(R.id.btn_edit) // 버튼 연결
+        // SharedPreferences에서 유저의 아이디 불러오기
+        val pref = requireActivity().getSharedPreferences("pref", Context.MODE_PRIVATE)
+        val userId = pref.getString("userId", "")
 
+        // DB 연결
+        val dbManager = DBManager(requireContext(), "user", null, 1)
+        val db = dbManager.readableDatabase
+
+        // 커서 설정
+        val cursor = db.rawQuery("SELECT * FROM user WHERE id = '$userId'", null)
+
+        if (cursor.moveToNext()) {
+            // 유저의 정보 가져오기
+            val idIndex = cursor.getColumnIndex("id")
+            val id = cursor.getString(idIndex)
+            val usernameIndex = cursor.getColumnIndex("userName")
+            val username = cursor.getString(usernameIndex)
+            val ikkiNameIndex = cursor.getColumnIndex("ikkiName")
+            val ikkiName = cursor.getString(ikkiNameIndex)
+            val pwIndex = cursor.getColumnIndex("pw")           //  db 통해 사용자 비밀번호 가져옴
+            userPw = cursor.getString(pwIndex)
+
+            // TextView에 유저의 정보 표시
+            val tv_UserId = view.findViewById<TextView>(R.id.tv_userId)
+            tv_UserId.text = id
+            val tv_Username = view.findViewById<TextView>(R.id.tv_username)
+            tv_Username.text = username
+            val tv_ikkiName = view.findViewById<TextView>(R.id.tv_ikkiname)
+            tv_ikkiName.text = ikkiName
+            val tv_TitleName = view.findViewById<TextView>(R.id.tv_titleName)
+            tv_TitleName.text = username + "님의 마이페이지"
+
+        }
+
+        cursor.close()
+        db.close()
+
+        val profileEditButton = view.findViewById<Button>(R.id.btn_edit) // 버튼 연결
         profileEditButton.setOnClickListener {
             val builder = AlertDialog.Builder(requireContext())
             val inflater = layoutInflater
@@ -64,15 +104,57 @@ class SettingFragment : Fragment() {
         val logoutButton = view.findViewById<Button>(R.id.btn_logout)
 
         logoutButton.setOnClickListener {
+            // SharedPreferences에서 로그인 상태를 false로 변경
+            val pref = requireActivity().getSharedPreferences("pref", Context.MODE_PRIVATE)
+            val editor = pref.edit()
+            editor.putBoolean("isLogin", false)
+            editor.apply()
+
             val logout = Intent(requireActivity(), LoginActivity::class.java)
-            // logout.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP) // 이전 액티비티 제거 (이전 액티비티 뜨지 않는 방법 찾아야 함)
             startActivity(logout)
+            requireActivity().finish()             // fragment에서 액티비티 메서드를 사용하가위해 requireActivity() 사용
         }
     }
 
-    // 비밀번호 확인
-    private fun checkPassword(password: EditText): Boolean {
-        return password.text.toString() == "password"
+    // 수정된 정보를 바로 반영하기위해 onResume() 사용, onResume()은 프래그먼트가 화면에 표시될 때마다 호출됨
+    override fun onResume() {
+        super.onResume()
+
+        // SharedPreferences에서 유저의 아이디 불러오기
+        val pref = requireActivity().getSharedPreferences("pref", Context.MODE_PRIVATE)
+        val userId = pref.getString("userId", "")
+
+        // DB 연결
+        val dbManager = DBManager(requireContext(), "user", null, 1)
+        val db = dbManager.readableDatabase
+
+        // 커서 설정
+        val cursor = db.rawQuery("SELECT * FROM user WHERE id = '$userId'", null)
+
+        if (cursor.moveToNext()) {
+            // 유저의 정보 가져오기
+            val usernameIndex = cursor.getColumnIndex("userName")
+            val username = cursor.getString(usernameIndex)
+            val ikkiNameIndex = cursor.getColumnIndex("ikkiName")
+            val ikkiName = cursor.getString(ikkiNameIndex)
+            val pwIndex = cursor.getColumnIndex("pw")
+            userPw = cursor.getString(pwIndex)
+
+            // TextView에 유저의 정보 표시
+            val tv_Username = view?.findViewById<TextView>(R.id.tv_username)
+            tv_Username?.text = username
+            val tv_ikkiName = view?.findViewById<TextView>(R.id.tv_ikkiname)
+            tv_ikkiName?.text = ikkiName
+            val tv_TitleName = view?.findViewById<TextView>(R.id.tv_titleName)
+            tv_TitleName?.text = username + "님의 마이페이지"
+        }
+
+        cursor.close()
+        db.close()
     }
 
+    // 비밀번호 확인 : 입력된 문자열이 비밀번호와 같으면 true 아니면 false 반환
+    private fun checkPassword(password: EditText): Boolean {
+        return password.text.toString() == userPw
+    }
 }
