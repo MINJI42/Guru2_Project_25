@@ -5,6 +5,7 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 
 class DBManager(
+    // 다른 코틀린 파일에서 DB매니저 생성 시 이름은 appDB로 설정해주세요!
     context: Context?,
     name: String?,
     factory: SQLiteDatabase.CursorFactory?,
@@ -19,14 +20,14 @@ class DBManager(
                 "ikkiLevel INTEGER DEFAULT 0, coin INTEGER DEFAULT 0, todoCount INTEGER DEFAULT 0);")
 
         // 투두리스트 정보 db
-        db!!.execSQL("CREATE TABLE todo (email_fk text, date date, listIndex INTEGER, list text," +
-                "FOREIGN KEY (email_fk) REFERENCES user (email) );")
+        db!!.execSQL("CREATE TABLE todo (email_todo text, date INTEGER, list text," +
+                "FOREIGN KEY (email_todo) REFERENCES user (email) );")
 
         // 옷 정보 db
-        db!!.execSQL("CREATE TABLE dress (email_fk2 text, item1 INTEGER, " +
+        db!!.execSQL("CREATE TABLE dress (email_dress text, item1 INTEGER, " +
                 "item2 INTEGER, item3 INTEGER, item4 INTEGER, item5 INTEGER, " +
                 "item6 INTEGER, item7 INTEGER, item8 INTEGER, item9 INTEGER, " +
-                "FOREIGN KEY (email_fk2) REFERENCES user (email));")
+                "FOREIGN KEY (email_dress) REFERENCES user (email));")
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, p1: Int, p2: Int) {

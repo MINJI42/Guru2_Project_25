@@ -31,7 +31,7 @@ class LoginActivity : AppCompatActivity() {
         tv_signup = findViewById(R.id.tv_signup)
 
         // DB 연결
-        dbManager = DBManager(this, "user", null, 1)
+        dbManager = DBManager(this, "appDB", null, 1)
         sqLiteDatabase = dbManager.readableDatabase
 
 
@@ -51,17 +51,21 @@ class LoginActivity : AppCompatActivity() {
                 correctPw = cursor.getString(pwIndex).toString()
 
                 if(enterPw == correctPw) {
-                    // 일치하는 경우 -> 화면 이동(test 토스트 메세지 출력)
+                    val emailIndex = cursor.getColumnIndex("email")
+                    val user_email: String = cursor.getString(emailIndex).toString()
                     cursor.close()
                     sqLiteDatabase.close()
+
+                    // 일치 -> 화면 이동(test 토스트 메세지 출력)
                     Toast.makeText(applicationContext, "로그인되었습니다.", Toast.LENGTH_SHORT).show()
                     val intent = Intent(this, MainActivity::class.java)
+                    intent.putExtra("intent_email", user_email)
                     startActivity(intent)
                 }
             }
 
             if(enterPw != correctPw) {
-                // 일치하지 않는 경우 -> 토스트 메세지 출력
+                // 일치x -> 토스트 메세지 출력
                 cursor.close()
                 Toast.makeText(applicationContext, "아이디 또는 비밀번호가 올바르지 않습니다.", Toast.LENGTH_SHORT).show()
             }

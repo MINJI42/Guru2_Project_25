@@ -32,8 +32,8 @@ class SignupActivity : AppCompatActivity() {
         et_pw = findViewById(R.id.et_pw)
         btn_signup = findViewById(R.id.btn_signup)
         tv_login = findViewById(R.id.tv_login)
-        // user DB 연결
-        dbManager = DBManager(this, "user", null, 1)
+        // DB 연결
+        dbManager = DBManager(this, "appDB", null, 1)
         sqLiteDatabase = dbManager.readableDatabase
 
         // signup 버튼 터치 -> 회원 정보 user DB에 삽입
