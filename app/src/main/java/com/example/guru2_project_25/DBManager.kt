@@ -20,7 +20,7 @@ class DBManager(
                 "ikkiLevel INTEGER DEFAULT 0, coin INTEGER DEFAULT 0, todoCount INTEGER DEFAULT 0);")
 
         // 투두리스트 정보 db
-        db!!.execSQL("CREATE TABLE todo (email_todo text, date INTEGER, list text," +
+        db!!.execSQL("CREATE TABLE todo (email_todo text, date INTEGER, todo text," +
                 "FOREIGN KEY (email_todo) REFERENCES user (email) );")
 
         // 옷 정보 db
