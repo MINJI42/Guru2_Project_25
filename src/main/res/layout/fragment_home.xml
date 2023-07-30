@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fg_home"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/room_bg"
+    android:orientation="vertical"
+    android:padding="30dp">
+
+
+    <ImageButton
+        android:id="@+id/callBtn"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="right"
+        android:background="@drawable/custom_edittext"
+        android:backgroundTint="@color/white"
+        android:padding="10dp"
+        tools:ignore="SpeakableTextPresentCheck"
+        android:src="@drawable/baseline_call_24" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/ikkiname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="이끼 이름"
+            android:textColor="@color/green"
+            android:textSize="26sp" />
+
+        <TextView
+            android:id="@+id/tv_level"
+            android:layout_width="58dp"
+            android:layout_height="25dp"
+            android:layout_gravity="left"
+            android:background="#33A550"
+            android:fontFamily="sans-serif-black"
+            android:text="레벨 0"
+            android:textAlignment="center"
+            android:textColor="#212121"
+            android:textSize="16sp"
+            tools:ignore="RtlCompat" />
+
+        <ProgressBar
+            android:id="@+id/pb_levelBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:max="100"
+            android:progress="10"
+            android:progressDrawable="@drawable/custom_progress_bg" />
+
+        <Button
+            android:id="@+id/btn_leveluptest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:text="levelup test" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="237dp"
+        android:layout_gravity="right"
+        android:orientation="vertical">
+
+        <ImageButton
+            android:id="@+id/btn_closet"
+            android:layout_width="214dp"
+            android:layout_height="300dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="88dp"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="#00F6F0E2"
+            android:padding="-100pt"
+            android:scaleType="centerCrop"
+            tools:ignore="SpeakableTextPresentCheck"
+            android:src="@drawable/closet"></ImageButton>
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Button" />
+
+        <!--            android:scaleType="center"-->
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="248dp"
+        android:clickable="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_ikkiSpeech"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:autoText="true"
+            android:backgroundTint="@color/teal_700"
+            android:text="선물상자를 클릭해보세요!"
+            android:textColor="@color/white"
+            android:textSize="24dp" />
+
+        <ImageView
+            android:id="@+id/ikki_img"
+            android:layout_width="190dp"
+            android:layout_height="178dp"
+            android:layout_marginLeft="80dp"
+            android:padding="0dp"
+            android:src="@drawable/gift" />
+    </LinearLayout>
+
+
+</LinearLayout>
