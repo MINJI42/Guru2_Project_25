@@ -26,6 +26,7 @@ class TutorialActivity4 : AppCompatActivity() {
         btn_next.setOnClickListener {
             val next= Intent(this, MainActivity::class.java)
             startActivity(next)
+            finish()
         }
     }
 

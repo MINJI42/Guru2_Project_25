@@ -28,8 +28,11 @@
         <activity android:name=".TutorialActivity4"> </activity>
         <activity android:name=".SignupActivity"> </activity>
         <activity android:name=".EditProfileActivity"> </activity>
-        <activity android:name=".MainActivity"> </activity>
+        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".Add_FriendActivity"> </activity>
+        <activity android:name=".MessageActivity"> </activity>
 
-    </application>
+
+</application>
 
 </manifest>

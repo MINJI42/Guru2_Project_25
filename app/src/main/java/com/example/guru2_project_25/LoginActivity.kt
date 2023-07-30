@@ -34,7 +34,7 @@ class LoginActivity() : AppCompatActivity(){
         tv_signup = findViewById(R.id.tv_signup)
 
         // DB 연결
-        dbManager = DBManager(this, "user", null, 1)
+        dbManager = DBManager(this, "appDB", null, 1)
         sqLiteDatabase = dbManager.readableDatabase
 
         // Login 버튼 터치 -> 사용자가 입력한 id로 DB 튜플 찾아 pw를 비교
@@ -67,7 +67,7 @@ class LoginActivity() : AppCompatActivity(){
                     editor.apply()
 
                     // DB 연결
-                    val dbManager = DBManager(this, "user", null, 1)
+                    val dbManager = DBManager(this, "appDB", null, 1)
                     val db = dbManager.readableDatabase
 
                     // 커서 설정

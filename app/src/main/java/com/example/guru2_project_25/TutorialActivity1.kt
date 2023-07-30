@@ -29,7 +29,7 @@ class TutorialActivity1 : AppCompatActivity() {
         btn_prev = findViewById(R.id.btn_prevLogin)
 
         // DB 연결
-        dbManager = DBManager(this, "user", null, 1)
+        dbManager = DBManager(this, "appDB", null, 1)
 
         // SharedPreferences에서 유저의 아이디 불러오기
         val pref = getSharedPreferences("pref", Context.MODE_PRIVATE)

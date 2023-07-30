@@ -22,7 +22,7 @@ class EditProfileActivity : AppCompatActivity() {
         val pref = getSharedPreferences("pref", Context.MODE_PRIVATE)
         val userId = pref.getString("userId", "")
 
-        val dbManager = DBManager(this, "user", null, 1)
+        val dbManager = DBManager(this, "appDB", null, 1)
         val db = dbManager.readableDatabase
 
 
@@ -78,7 +78,7 @@ class EditProfileActivity : AppCompatActivity() {
             showEditDialog("이끼 이름 변경", "새로운 이끼 이름을 입력하세요.") { newText ->
                 editIkkiname.text = newText
                 // db 업데이트 내용
-                val dbManager = DBManager(this, "user", null, 1)
+                val dbManager = DBManager(this, "appDB", null, 1)
                 val db = dbManager.writableDatabase
                 db.execSQL("UPDATE user SET ikkiName = '$newText' WHERE id = '$userId'")
             }
@@ -104,7 +104,7 @@ class EditProfileActivity : AppCompatActivity() {
             showEditDialog("비밀번호 변경", "새로운 비밀번호를 입력하세요.") { newText ->
                 editPassword.text = newText
                 // db 업데이트 내용
-                val dbManager = DBManager(this, "user", null, 1)
+                val dbManager = DBManager(this, "appDB", null, 1)
                 val db = dbManager.writableDatabase
                 db.execSQL("UPDATE user SET pw = '$newText' WHERE id = '$userId'")
             }

@@ -32,7 +32,7 @@ class SignupActivity : AppCompatActivity() {
         btn_signup = findViewById(R.id.btn_signup)
         tv_login = findViewById(R.id.tv_login)
         // user db manager에 연결
-        dbManager = DBManager(this, "user", null, 1)
+        dbManager = DBManager(this, "appDB", null, 1)
 
         // signup 버튼 터치 -> 회원 정보 user DB에 삽입
         btn_signup.setOnClickListener {

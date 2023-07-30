@@ -35,7 +35,7 @@ class SettingFragment : Fragment() {
         val userId = pref.getString("userId", "")
 
         // DB 연결
-        val dbManager = DBManager(requireContext(), "user", null, 1)
+        val dbManager = DBManager(requireContext(), "appDB", null, 1)
         val db = dbManager.readableDatabase
 
         // 커서 설정
@@ -125,7 +125,7 @@ class SettingFragment : Fragment() {
         val userId = pref.getString("userId", "")
 
         // DB 연결
-        val dbManager = DBManager(requireContext(), "user", null, 1)
+        val dbManager = DBManager(requireContext(), "appDB", null, 1)
         val db = dbManager.readableDatabase
 
         // 커서 설정

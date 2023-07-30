@@ -27,6 +27,24 @@ class DBManager(
                 "item2 INTEGER, item3 INTEGER, item4 INTEGER, item5 INTEGER, " +
                 "item6 INTEGER, item7 INTEGER, item8 INTEGER, item9 INTEGER, " +
                 "FOREIGN KEY (email_fk2) REFERENCES user (email));")
+
+       // 친구 목록 정보 db
+        db!!.execSQL("CREATE TABLE friend (" +
+                "userId text NOT NULL," +
+                "friendId text NOT NULL," +
+                "friendNickname text NOT NULL," +
+                "FOREIGN KEY (userId) REFERENCES user (id)," +
+                "FOREIGN KEY (friendId) REFERENCES user (id))")
+
+        // 메시지 전송
+        db!!.execSQL("CREATE TABLE message (" +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "senderId text NOT NULL," +
+                "receiverId text NOT NULL," +
+                "content text NOT NULL," +
+                "timestamp INTEGER NOT NULL," +
+                "FOREIGN KEY (senderId) REFERENCES user (id)," +
+                "FOREIGN KEY (receiverId) REFERENCES user (id))")
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, p1: Int, p2: Int) {
