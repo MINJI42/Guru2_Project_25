@@ -1,7 +1,6 @@
 package com.example.guru2_project_25
 
 import android.content.Intent
-import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.os.Bundle
 import android.widget.Button
@@ -32,9 +31,8 @@ class SignupActivity : AppCompatActivity() {
         et_pw = findViewById(R.id.et_pw)
         btn_signup = findViewById(R.id.btn_signup)
         tv_login = findViewById(R.id.tv_login)
-        // DB 연결
+        // user db manager에 연결
         dbManager = DBManager(this, "appDB", null, 1)
-        sqLiteDatabase = dbManager.readableDatabase
 
         // signup 버튼 터치 -> 회원 정보 user DB에 삽입
         btn_signup.setOnClickListener {
@@ -42,29 +40,18 @@ class SignupActivity : AppCompatActivity() {
             var set_email: String = et_email.text.toString()
             var set_id: String = et_id.text.toString()
             var set_pw: String = et_pw.text.toString()
+            // 삽입
+            sqLiteDatabase = dbManager.writableDatabase
+            sqLiteDatabase.execSQL("INSERT INTO user VALUES ('"
+                    + set_email+"', '"+set_id+"', '"+set_pw+"', null, null, 0, 0, 0);")
+            sqLiteDatabase.close()
 
-            // 커서 설정 : 중복된 이메일 가입 방지
-            var cursor: Cursor
-            cursor = sqLiteDatabase.rawQuery("SELECT * FROM user WHERE email = '"+set_email+"';", null)
+            Toast.makeText(applicationContext, "회원가입이 완료되었습니다.", Toast.LENGTH_SHORT).show()
 
-            if(cursor.getCount() == 0) {
-                // DB 내 동일한 이메일 없음 -> 회원가입o
-                // 삽입
-                sqLiteDatabase = dbManager.writableDatabase
-                sqLiteDatabase.execSQL("INSERT INTO user VALUES ('"
-                        + set_email+"', '"+set_id+"', '"+set_pw+"', null, null, 0, 0, 0);")
-                cursor.close()
-                sqLiteDatabase.close()
-                // 안내 메세지
-                Toast.makeText(applicationContext, "회원가입이 완료되었습니다.", Toast.LENGTH_SHORT).show()
-                // 로그인 화면으로 넘어가기
-                val intent = Intent(this, LoginActivity::class.java)
-                startActivity(intent)
-            } else {
-                cursor.close()
-                // DB 내 동일한 이메일 존재 -> 회원가입x : 안내 메세지 출력
-                Toast.makeText(applicationContext, "이미 가입한 이메일입니다.", Toast.LENGTH_SHORT).show()
-            }
+            // 로그인 화면으로 넘어가기
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+
         }
 
         // 텍스트 터치 시 화면전환
