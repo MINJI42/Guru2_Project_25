@@ -46,7 +46,7 @@ class LoginActivity() : AppCompatActivity(){
             var cursor: Cursor
 
             // 커서 설정
-            cursor = sqLiteDatabase.rawQuery("SELECT * FROM user WHERE id = '"+enterId+"';", null)
+            cursor = sqLiteDatabase.rawQuery("SELECT * FROM user WHERE id = '$enterId';", null)
 
             if(cursor.moveToNext()) {
                 pwIndex = cursor.getColumnIndex("pw")

@@ -22,6 +22,7 @@ class EditProfileActivity : AppCompatActivity() {
         val pref = getSharedPreferences("pref", Context.MODE_PRIVATE)
         val userId = pref.getString("userId", "")
 
+
         val dbManager = DBManager(this, "appDB", null, 1)
         val db = dbManager.readableDatabase
 
