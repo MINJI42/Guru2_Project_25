@@ -1,13 +1,14 @@
 package com.example.guru2_project_25
 
-import android.content.Context
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
+    //var userIDFromDB : String = ""
+
+    //val homeFragment = HomeFragment.newInstance(userIDFromDB)
 
     private lateinit var bottomNavigationView : BottomNavigationView
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,4 +47,35 @@ class MainActivity : AppCompatActivity() {
     private fun replaceFragment(fragment : Fragment){
         supportFragmentManager.beginTransaction().replace(R.id.frame_container,fragment).commit()
     }
+
+    //옷장에서 아이템 선택 시 홈으로 넘어가도록
+    fun onClosetItemClicked(itemImageResource: Int) {
+        val homeFragment = HomeFragment()
+        val fragmentManager = supportFragmentManager
+        val transaction = fragmentManager.beginTransaction()
+
+        // Pass the item image resource to the HomeFragment using arguments bundle
+        val args = Bundle()
+        args.putInt("itemImageResource", itemImageResource)
+        homeFragment.arguments = args
+
+        transaction.replace(R.id.frame_container, homeFragment)
+        transaction.addToBackStack(null)
+        transaction.commit()
+    }
+
+    fun onClosetItemSelectionConfirmed(itemImageResource: Int) {
+        // Pass the selected item image resource to the HomeFragment using arguments bundle
+        val homeFragment = HomeFragment()
+        val args = Bundle()
+        args.putInt("itemImageResource", itemImageResource)
+        homeFragment.arguments = args
+
+        // Replace the current fragment with the HomeFragment
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.frame_container, homeFragment)
+            .addToBackStack(null)
+            .commit()
+    }
+
 }
