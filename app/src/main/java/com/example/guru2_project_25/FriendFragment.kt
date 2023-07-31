@@ -51,17 +51,18 @@ class FriendFragment : Fragment() {
 
         val friends = mutableListOf<Friend>()
         while (cursor.moveToNext()) {
+            val friendIdIndex = cursor.getColumnIndex("friendId")
+            val friendId = cursor.getString(friendIdIndex)
+
             val friendNicknameIndex = cursor.getColumnIndex("friendNickname")
             val friendNickname = cursor.getString(friendNicknameIndex)
 
             // DB에서 친구의 이름 검색
-            val friendIdIndex = cursor.getColumnIndex("friendId")
-            val friendId = cursor.getString(friendIdIndex)
             val cursor2 = db.rawQuery("SELECT * FROM user WHERE id = '$friendId'", null)
             if (cursor2.moveToNext()) {
                 val nameIndex = cursor2.getColumnIndex("userName")
                 val name = cursor2.getString(nameIndex)
-                friends.add(Friend(name, friendNickname))
+                friends.add(Friend(friendId, name, friendNickname))
             }
             cursor2.close()
         }
@@ -89,17 +90,18 @@ class FriendFragment : Fragment() {
 
         val friends = mutableListOf<Friend>()
         while (cursor.moveToNext()) {
+            val friendIdIndex = cursor.getColumnIndex("friendId")
+            val friendId = cursor.getString(friendIdIndex)
+
             val friendNicknameIndex = cursor.getColumnIndex("friendNickname")
             val friendNickname = cursor.getString(friendNicknameIndex)
 
             // DB에서 친구의 이름 검색
-            val friendIdIndex = cursor.getColumnIndex("friendId")
-            val friendId = cursor.getString(friendIdIndex)
             val cursor2 = db.rawQuery("SELECT * FROM user WHERE id = '$friendId'", null)
             if (cursor2.moveToNext()) {
                 val nameIndex = cursor2.getColumnIndex("userName")
                 val name = cursor2.getString(nameIndex)
-                friends.add(Friend(name, friendNickname))
+                friends.add(Friend(friendId, name, friendNickname))
             }
             cursor2.close()
         }

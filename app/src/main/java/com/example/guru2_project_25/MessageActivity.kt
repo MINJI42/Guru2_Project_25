@@ -25,6 +25,35 @@ class MessageActivity : AppCompatActivity() {
         val adapter = MessageAdapter(messages)
         recyclerView.adapter = adapter
 
+        fun updateRecyclerView() {
+            // SharedPreferences에서 유저의 아이디 불러오기
+            val pref = getSharedPreferences("pref", Context.MODE_PRIVATE)
+            val userId = pref.getString("userId", "") ?: ""
+
+            // DB에서 메시지 조회
+            val dbManager = DBManager(this, "appDB", null, 1)
+            val db = dbManager.readableDatabase
+            val cursor = db.rawQuery("SELECT * FROM message WHERE receiverId = '$userId' ORDER BY timestamp DESC", null)
+            messages.clear()
+            while (cursor.moveToNext()) {
+                val senderId = cursor.getString(cursor.getColumnIndex("senderId"))
+                val content = cursor.getString(cursor.getColumnIndex("content"))
+                val timestamp = cursor.getLong(cursor.getColumnIndex("timestamp"))
+
+                // 발신자의 별명 조회
+                val cursor2 = db.rawQuery("SELECT * FROM friend WHERE userId = '$userId' AND friendId = '$senderId'", null)
+                if (cursor2.moveToNext()) {
+                    val senderNickname = cursor2.getString(cursor2.getColumnIndex("friendNickname"))
+                    messages.add(Message(senderId, senderNickname, content, timestamp))
+                }
+                cursor2.close()
+            }
+            cursor.close()
+            db.close()
+
+            adapter.notifyDataSetChanged()
+        }
+
         // SharedPreferences에서 유저의 아이디 불러오기
         val pref = getSharedPreferences("pref", Context.MODE_PRIVATE)
         val userId = pref.getString("userId", "") ?: ""

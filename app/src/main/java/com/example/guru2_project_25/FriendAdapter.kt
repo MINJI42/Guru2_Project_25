@@ -59,7 +59,7 @@ class FriendAdapter(private val friends: List<Friend>) : RecyclerView.Adapter<Fr
                     val db = dbManager.writableDatabase
                     val values = ContentValues()
                     values.put("senderId", userId)
-                    //values.put("receiverId", currentFriend.id)
+                    values.put("receiverId", currentFriend.id)
                     values.put("content", message)
                     values.put("timestamp", System.currentTimeMillis())
                     db.insert("message", null, values)
