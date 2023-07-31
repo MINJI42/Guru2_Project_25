@@ -1,14 +1,13 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.Guru2_Project_25" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Base.Theme.TheGrowthDiaryOfMoss" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
-
         <!-- 상태 표시줄 색상 설정, statusBarColor : 상태표시줄 배경색 설정,
-                                 windowLightStatusBar : 상태표시줄 아이콘 및 텍스트 색상 설정-->
+                               windowLightStatusBar : 상태표시줄 아이콘 및 텍스트 색상 설정-->
         <item name="android:statusBarColor" tools:targetApi="l">@color/white</item>
         <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
     </style>
 
-    <style name="Theme.Guru2_Project_25" parent="Base.Theme.Guru2_Project_25" />
+    <style name="Theme.TheGrowthDiaryOfMoss" parent="Base.Theme.TheGrowthDiaryOfMoss" />
 </resources>
