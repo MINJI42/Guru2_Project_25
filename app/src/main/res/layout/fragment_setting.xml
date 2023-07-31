@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/login_bg"
+    android:background="@drawable/basic_bg"
     tools:context=".MainActivity">
     <ImageView
         android:layout_width="50dp"
@@ -37,7 +37,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="24dp"
-        android:background="@drawable/white_background"
+        android:background="@drawable/basic_white_bg"
         android:orientation="vertical"
         android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -267,6 +267,7 @@
                 android:textAlignment="viewEnd"
                 android:textColor="@color/black"
                 android:textSize="18sp"
+                android:trackTint="@color/green"
                 tools:ignore="TouchTargetSizeCheck" />
 
         </LinearLayout>

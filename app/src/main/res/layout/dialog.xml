@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/edit_dialog_fill"
-            android:drawableLeft="@drawable/baseline_local_florist_24"
+            android:drawableLeft="@drawable/ic_flower_24"
             android:drawablePadding="8dp"
             android:padding="10dp"
             android:text="비밀번호 재확인 "

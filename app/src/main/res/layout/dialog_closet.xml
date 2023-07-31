@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/closetDialog"
+    android:layout_margin="20dp"
+    android:padding="20dp">
+
+    <LinearLayout
+        android:id="@+id/itemApplyView"
+        android:background="@drawable/basic_white_bg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_closetDialogTitle"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/edit_dialog_fill"
+            android:drawableTop="@drawable/home_closet_ic_error_24"
+            android:drawablePadding="8dp"
+            android:padding="10dp"
+            android:text=""
+            android:textColor="@color/green"
+            android:textSize="17sp"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_applyImage"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_gravity="center"
+            android:backgroundTint="#FFFFFF"
+            android:src="@drawable/home_closet_ikki_headphone" />
+
+        <TextView
+            android:id="@+id/tv_closetDialogInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="정말 아이템을 착용하시겠습니까?"
+            android:textAlignment="center"
+            android:textColor="@color/green"
+            android:textSize="20dp"
+
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_closetCancel"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30sp"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="@color/green"
+                android:text="취소"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/btn_closetApply"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20sp"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="@color/green"
+                android:text="확인"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:cornerRadius="20dp" />
+            />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/edit_dialog_fill"
-            android:drawableLeft="@drawable/baseline_create_24"
+            android:drawableLeft="@drawable/ic_edit_24"
             android:drawablePadding="8dp"
             android:padding="10dp"
             android:text="수정하기"

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@drawable/login_bg"
+    android:background="@drawable/basic_bg"
     tools:context=".SignupActivity">
 
     <androidx.cardview.widget.CardView
@@ -15,7 +15,7 @@
         android:layout_margin="30dp"
         app:cardCornerRadius="30dp"
         app:cardElevation="20dp"
-        android:background="@drawable/custom_edittext" >
+        android:background="@drawable/basic_custom_et" >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -38,8 +38,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:id="@+id/et_email"
-                android:background="@drawable/custom_edittext"
-                android:drawableLeft="@drawable/baseline_email_24"
+                android:background="@drawable/basic_custom_et"
+                android:drawableLeft="@drawable/login_ic_email_18"
                 android:drawablePadding="8dp"
                 android:hint="이메일"
                 android:padding="8dp"
@@ -51,8 +51,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:id="@+id/et_id"
-                android:background="@drawable/custom_edittext"
-                android:drawableLeft="@drawable/baseline_person_24"
+                android:background="@drawable/basic_custom_et"
+                android:drawableLeft="@drawable/ic_person_18"
                 android:drawablePadding="8dp"
                 android:hint="아이디"
                 android:padding="8dp"
@@ -64,8 +64,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:id="@+id/et_pw"
-                android:background="@drawable/custom_edittext"
-                android:drawableLeft="@drawable/baseline_lock_24"
+                android:background="@drawable/basic_custom_et"
+                android:drawableLeft="@drawable/login_ic_lock_18"
                 android:drawablePadding="8dp"
                 android:hint="비밀번호"
                 android:inputType="textPassword"

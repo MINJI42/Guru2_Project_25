@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fg_closet"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_green"
+    android:orientation="vertical"
+    tools:context=".ClosetActivity">
+
+    <ImageButton
+        android:id="@+id/imgbtn_prev3"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/basic_white_bg"
+        android:backgroundTint="@color/green"
+        app:srcCompat="@drawable/ic_arrow_back_24"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="#058BC34A"
+        android:layout_gravity="center"
+        android:text="이끼의 옷장"
+        android:textAlignment="center"
+        android:textColor="@color/green"
+        android:textSize="36dp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_marginTop="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/IB_ikkiItem1"
+            android:layout_width="120dp"
+            android:layout_height="130dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/white"
+            android:paddingTop="30dp"
+            android:paddingRight="10dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/home_closet_ikki_headphone" />
+
+        <ImageButton
+            android:id="@+id/IB_ikkiItem2"
+            android:layout_width="120dp"
+            android:layout_height="130dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/white"
+            android:paddingRight="20dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/home_closet_ikki_hat" />
+
+        <ImageButton
+            android:id="@+id/IB_ikkiItem3"
+            android:layout_width="120dp"
+            android:layout_height="130dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/white"
+            android:paddingRight="20dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/home_closet_ikki_devil" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/IB_ikkiItem4"
+            android:layout_width="120dp"
+            android:layout_height="130dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/white"
+            android:scaleType="centerInside"
+            android:src="@drawable/home_closet_ikki_bd" />
+
+        <ImageButton
+            android:id="@+id/IB_ikkiItem5"
+            android:layout_width="120dp"
+            android:layout_height="130dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/white"
+            android:scaleType="centerCrop"
+            android:src="@drawable/home_closet_ikki_crown" />
+
+        <ImageButton
+            android:id="@+id/IB_ikkiItem6"
+            android:layout_width="120dp"
+            android:layout_height="130dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/white"
+            android:scaleType="centerInside"
+            android:src="@drawable/home_closet_ikki_flower" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/IB_ikkiItem7"
+            android:layout_width="120dp"
+            android:layout_height="130dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/white"
+            android:scaleType="centerInside"
+            android:src="@drawable/home_closet_ikki_cherry" />
+
+        <ImageButton
+            android:id="@+id/IB_ikkiItem8"
+            android:layout_width="120dp"
+            android:layout_height="130dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/white"
+            android:scaleType="centerInside"
+            android:src="@drawable/home_closet_ikki_glasses" />
+
+        <ImageButton
+            android:id="@+id/IB_ikkiItem9"
+            android:layout_width="120dp"
+            android:layout_height="130dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/white"
+            android:scaleType="centerInside"
+            android:src="@drawable/home_closet_ikki_sunglasses" />
+
+    </LinearLayout>
+
+</LinearLayout>

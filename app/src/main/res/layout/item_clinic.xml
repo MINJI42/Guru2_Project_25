@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- list_item_counseling.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/clinic_item"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FBF6F6"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Add appropriate TextViews to display counseling-related site and phone number here -->
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:src="@color/list_color_default"></ImageView>
+
+    <TextView
+        android:id="@+id/textViewName"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="right"
+        android:background="#FAF8EC"
+        android:textSize="30dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textViewInfo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </TextView>
+
+    <TextView
+        android:id="@+id/textViewPhoneNumber"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="right"
+        android:textSize="20dp"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/textViewSite"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="right"
+        android:textSize="20dp"
+        android:visibility="gone"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_clinicSiteConnect"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="사이트방문"
+            android:textColor="@color/white"
+            android:layout_gravity="left"
+            android:backgroundTint="@color/green"
+            >
+        </Button>
+
+        <Button
+            android:id="@+id/btn_clinicCalling"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="전화연결"
+            android:textColor="@color/white"
+            android:layout_gravity="right"
+            android:backgroundTint="@color/green"
+            >
+        </Button>
+    </LinearLayout>
+
+
+</LinearLayout>
