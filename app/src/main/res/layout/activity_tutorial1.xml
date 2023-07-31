@@ -21,7 +21,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
             android:id="@+id/btn_prevLogin"
-            android:src="@drawable/ic_arrow_back_24" />
+            android:src="@drawable/baseline_arrow_back_24" />
 
     </LinearLayout>
 
@@ -33,7 +33,7 @@
         android:layout_marginRight="25dp"
         app:cardCornerRadius="30dp"
         app:cardElevation="20dp"
-        android:background="@drawable/basic_custom_et" >
+        android:background="@drawable/custom_edittext" >
 
     <LinearLayout
             android:layout_width="match_parent"
@@ -57,8 +57,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/basic_custom_et"
-                android:drawableLeft="@drawable/tutorial_ic_rename_24"
+                android:background="@drawable/custom_edittext"
+                android:drawableLeft="@drawable/baseline_drive_file_rename_outline_24"
                 android:drawablePadding="8dp"
                 android:hint="당신의 이름을 입력하세요."
                 android:inputType="text"

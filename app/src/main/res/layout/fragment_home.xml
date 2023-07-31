@@ -5,21 +5,25 @@
     android:id="@+id/fg_home"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/home_bg"
+    android:background="@drawable/room_bg"
     android:orientation="vertical"
     android:padding="30dp">
 
+<!--    <FrameLayout-->
+<!--        android:id="@id/fg_closet"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"/>-->
 
     <ImageButton
         android:id="@+id/callBtn"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_gravity="right"
-        android:background="@drawable/basic_custom_et"
+        android:background="@drawable/custom_edittext"
         android:backgroundTint="@color/white"
         android:padding="10dp"
         tools:ignore="SpeakableTextPresentCheck"
-        android:src="@drawable/home_ic_call_24" />
+        android:src="@drawable/baseline_call_24" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -29,7 +33,7 @@
         android:padding="10dp">
 
         <TextView
-            android:id="@+id/tv_home_ikkiname"
+            android:id="@+id/et_ikkiName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
@@ -42,7 +46,7 @@
             android:layout_width="58dp"
             android:layout_height="25dp"
             android:layout_gravity="left"
-            android:background="@drawable/basic_white_bg"
+            android:background="#33A550"
             android:fontFamily="sans-serif-black"
             android:text="레벨 0"
             android:textAlignment="center"
@@ -59,7 +63,24 @@
             android:progress="10"
             android:progressDrawable="@drawable/custom_progress_bg" />
 
+        <Button
+            android:id="@+id/btn_leveluptest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:text="levelup test" />
+
     </LinearLayout>
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:gravity="right"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:padding="10dp">-->
+
+<!--    </LinearLayout>-->
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -78,7 +99,7 @@
             android:padding="-100pt"
             android:scaleType="centerCrop"
             tools:ignore="SpeakableTextPresentCheck"
-            android:src="@drawable/home_closet"></ImageButton>
+            android:src="@drawable/closet"></ImageButton>
 
         <Button
             android:id="@+id/button"
@@ -92,25 +113,26 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="248dp"
-        android:clickable="true"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/tv_ikkiSpeech"
+            android:id="@+id/ikki_speech"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:backgroundTint="@color/teal_700"
             android:textColor="@color/white"
             android:textSize="24dp" />
 
         <ImageView
             android:id="@+id/ikki_img"
-            android:layout_width="190dp"
-            android:layout_height="178dp"
-            android:layout_marginLeft="80dp"
-            android:padding="0dp"
-            android:src="@drawable/home_gift" />
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:src="@drawable/gift" />
     </LinearLayout>
+
 
 </LinearLayout>

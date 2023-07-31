@@ -10,11 +10,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.TheGrowthDiaryOfMoss"
+        android:theme="@style/Theme.Guru2_Project_25"
         tools:targetApi="31">
-        <activity
-            android:name=".ClosetActivity"
-            android:exported="false" />
         <activity
             android:name=".LoginActivity"
             android:exported="true">
@@ -24,33 +21,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".SignupActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="false" />
-        <activity
-            android:name=".TutorialActivity1"
-            android:exported="false" />
-        <activity
-            android:name=".TutorialActivity2"
-            android:exported="false" />
-        <activity
-            android:name=".TutorialActivity3"
-            android:exported="false" />
-        <activity
-            android:name=".TutorialActivity4"
-            android:exported="false" />
-        <activity
-            android:name=".SettingEditActivity"
-            android:exported="false" />
-        <activity
-            android:name=".FriendAddActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MessageActivity"
-            android:exported="false" />
-    </application>
+
+        <activity android:name=".TutorialActivity1"> </activity>
+        <activity android:name=".TutorialActivity2"> </activity>
+        <activity android:name=".TutorialActivity3"> </activity>
+        <activity android:name=".TutorialActivity4"> </activity>
+        <activity android:name=".SignupActivity"> </activity>
+        <activity android:name=".EditProfileActivity"> </activity>
+        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".Add_FriendActivity"> </activity>
+        <activity android:name=".MessageActivity"> </activity>
+
+
+</application>
 
 </manifest>

@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.thegrowthdiaryofmoss'
+    namespace 'com.example.guru2_project_25'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.thegrowthdiaryofmoss"
+        applicationId "com.example.guru2_project_25"
         minSdk 24
         targetSdk 33
         versionCode 1
